@@ -31,7 +31,7 @@ stepsByDay <- activity %>% group_by(date) %>% summarise(steps=sum(steps))
 ```
 
 Create a histogram of Total Number of Steps Taken Per Day
-```{r histogram of steps per day, echo=TRUE}
+```{r histogram of steps per day, echo=TRUE, results="asis"}
 ggplot(data=stepsByDay) + geom_histogram(mapping=aes(x=steps), fill="red", color="white", bins=30, na.rm=TRUE) + xlab("Steps") + ylab("Count") + ggtitle("Total Number of Steps Taken Per Day")
 ```
 
@@ -50,7 +50,7 @@ medianStepsByDay
 ## What is the average daily activity pattern?
 
 Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken averaged across all days (y-axis)
-```{r interval average, echo=TRUE}
+```{r interval average, echo=TRUE, results="asis"}
 intActivity <- activity %>% group_by(interval) %>% summarise(stepsAverage=mean(steps, na.rm=TRUE))
 ggplot(intActivity, aes(interval, stepsAverage)) + geom_line() + xlab("Time") + ylab("Average Number of Steps") + scale_x_continuous(breaks=c(0,500,1000,1500,2000), labels=c("0:00","5:00","10:00","15:00","20:00"))
 ```
@@ -78,7 +78,7 @@ imputedStepsByDay <- imputeSteps %>% group_by(date) %>% summarise(steps=sum(step
 ```
 
 Make a histogram of the total number of steps taken each day.
-```{r imputed steps by data histogram, echo=TRUE}
+```{r imputed steps by data histogram, echo=TRUE, results="asis"}
 ggplot(data=imputedStepsByDay) + geom_histogram(mapping=aes(x=steps), fill="red", color="white", bins=30, na.rm=TRUE) + xlab("Steps") + ylab("Count") + ggtitle("Total Number of Steps Taken Per Day (with Interval Mean Imputed for NAs)")
 ```
 
@@ -118,7 +118,7 @@ activityDaysFactor <- activityDays %>% mutate(daytype=fct_collapse(day, weekend=
 ```
 
 Then make a panel plot containing a time-series plot of average steps taken averaged across all weekdays and weekends.
-```{r, create weekday and weekend panel plot, echo=TRUE}
+```{r, create weekday and weekend panel plot, echo=TRUE, results="asis"}
 intervalWeekendWeekday <- activityDaysFactor %>% group_by(interval, daytype) %>% summarise(steps=mean(steps))
 ggplot(intervalWeekendWeekday, aes(interval, steps)) + geom_line() + facet_wrap(~ daytype, nrow=2) + xlab("Time") + ylab("Average Number of Steps") + scale_x_continuous(breaks=c(0,500,1000,1500,2000), labels=c("0:00","5:00","10:00","15:00","20:00"))
 ```
