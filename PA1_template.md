@@ -74,6 +74,8 @@ ggplot(data=stepsByDay) + geom_histogram(mapping=aes(x=steps), fill="red", color
 
 ![](PA1_template_files/figure-html/histogram of steps per day-1.png)<!-- -->
 
+![](PA1_template_files/figure-html/histogram of steps per day-1.png)
+
 Calculate and report the mean of total number of steps taken per day
 
 ```r
@@ -112,6 +114,8 @@ ggplot(intActivity, aes(interval, stepsAverage)) + geom_line() + xlab("Time") + 
 ```
 
 ![](PA1_template_files/figure-html/interval average-1.png)<!-- -->
+
+![](PA1_template_files/figure-html/interval average-1.png)
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -160,6 +164,8 @@ ggplot(data=imputedStepsByDay) + geom_histogram(mapping=aes(x=steps), fill="red"
 ```
 
 ![](PA1_template_files/figure-html/imputed steps by data histogram-1.png)<!-- -->
+
+![](PA1_template_files/figure-html/imputed steps by data histogram-1.png)
 
 Calculate and report the mean number of steps taken per day.
 
@@ -233,3 +239,5 @@ ggplot(intervalWeekendWeekday, aes(interval, steps)) + geom_line() + facet_wrap(
 ```
 
 ![](PA1_template_files/figure-html/create weekday and weekend panel plot-1.png)<!-- -->
+
+![](PA1_template_files/figure-html/create weekday and weekend panel plot-1.png)
