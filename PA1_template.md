@@ -72,9 +72,7 @@ Create a histogram of Total Number of Steps Taken Per Day
 ggplot(data=stepsByDay) + geom_histogram(mapping=aes(x=steps), fill="red", color="white", bins=30, na.rm=TRUE) + xlab("Steps") + ylab("Count") + ggtitle("Total Number of Steps Taken Per Day")
 ```
 
-![](PA1_template_files/figure-html/histogram of steps per day-1.png)<!-- -->
-
-![](PA1_template_files/figure-html/histogram of steps per day-1.png)
+![](PA1_template_files/figure-html/histogramofstepsperday-1.png)<!-- -->
 
 Calculate and report the mean of total number of steps taken per day
 
@@ -113,9 +111,7 @@ intActivity <- activity %>% group_by(interval) %>% summarise(stepsAverage=mean(s
 ggplot(intActivity, aes(interval, stepsAverage)) + geom_line() + xlab("Time") + ylab("Average Number of Steps") + scale_x_continuous(breaks=c(0,500,1000,1500,2000), labels=c("0:00","5:00","10:00","15:00","20:00"))
 ```
 
-![](PA1_template_files/figure-html/interval average-1.png)<!-- -->
-
-![](PA1_template_files/figure-html/interval average-1.png)
+![](PA1_template_files/figure-html/intervalaverage-1.png)<!-- -->
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -163,9 +159,8 @@ Make a histogram of the total number of steps taken each day.
 ggplot(data=imputedStepsByDay) + geom_histogram(mapping=aes(x=steps), fill="red", color="white", bins=30, na.rm=TRUE) + xlab("Steps") + ylab("Count") + ggtitle("Total Number of Steps Taken Per Day (with Interval Mean Imputed for NAs)")
 ```
 
-![](PA1_template_files/figure-html/imputed steps by data histogram-1.png)<!-- -->
+![](PA1_template_files/figure-html/imputedstepsbydatahistogram-1.png)<!-- -->
 
-![](PA1_template_files/figure-html/imputed steps by data histogram-1.png)
 
 Calculate and report the mean number of steps taken per day.
 
@@ -238,6 +233,4 @@ intervalWeekendWeekday <- activityDaysFactor %>% group_by(interval, daytype) %>%
 ggplot(intervalWeekendWeekday, aes(interval, steps)) + geom_line() + facet_wrap(~ daytype, nrow=2) + xlab("Time") + ylab("Average Number of Steps") + scale_x_continuous(breaks=c(0,500,1000,1500,2000), labels=c("0:00","5:00","10:00","15:00","20:00"))
 ```
 
-![](PA1_template_files/figure-html/create weekday and weekend panel plot-1.png)<!-- -->
-
-![](PA1_template_files/figure-html/create weekday and weekend panel plot-1.png)
+![](PA1_template_files/figure-html/weekdayweekendpanelplot-1.png)<!-- -->
